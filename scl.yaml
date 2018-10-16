@@ -1,67 +1,57 @@
-- name: 比赛配置
-  dir: config/
+- name: General
+  dir: general/
   files:
-    - title: 代码库校验和
+    - title: Code library checksum
       fname: checksum.py
-      desc: |
-        计算每一行忽略空白字符和\texttt{//}注释后内容的MD5 Hash。
-        使用\texttt{python checksum.py < code.cpp}打印校验和,并与代码库侧面的数值比对。
-    - title: Vim配置文件
-      fname: vimrc
-    - title: 堆栈外挂
-      fname: stack.cpp
-      desc: |
-        将堆栈指针指向用户空间的缓存中从而获得无限大的堆栈。注意在返回前将堆栈指针恢复，否则将出现Segmentation Fault。
-    - title: I/O外挂
-      fname: io.cpp
-      desc: |
-        快速整数输入输出，只支持非负整数。
-    - title: 编译优化外挂
-      fname: pragma.cpp
-      desc: |
-        开启GCC的O2编译优化。
-- name: 组合优化
-  dir: opt/
+    - title: .vimrc
+      fname: vimrc.txt
+    - title: Template
+      fname: template.cpp
+- name: Miscellanous Algorithms
+  dir: misc/
   files:
-    - title: 上下界最小费用可行流
-      fname: costflow.cpp
-      desc: |
-        支持上下界的最小费用S-T可行流，可兼作高效最小费用最大流实现。
-        
-        class W: 权值的类型; G.init(源点编号, 汇点编号, 结点数量(0-based), 最小值(整数为0，浮点数为1e-6, 无穷大值); G.insert(u, v, 下界, 上界, 费用); G.work()返回最小代价可行流。
-    - title: 线性规划(单纯形)
-      fname: lp.cpp
-- name: 数论
-  dir: numtheory/
+    - title: Fast fourier transform
+      fname: fft.cpp
+    - title: 2-SAT
+      fname: two-sat.cpp
+    - title: Knuth's optimization
+      fname: knuth.cpp
+- name: String
+  dir: string/
   files:
-    - title: 二次剩余
-      fname: quadratic-residue.cpp
-      desc: |
-        求最小的$0\le x < p$满足$x^2=n\ (\mathrm{mod}\ p)$ ($p$是素数)。不存在时返回$-1$。
-- name: Watashi代码库(备用)
-  dir: watashi/
+    - title: Knuth-Morris-Pratt algorithm
+      fname: kmp.cpp
+    - title: Manacher algorithm
+      fname: manacher.cpp
+    - title: Aho-corasick automaton
+      fname: aho-corasick.cpp
+    - title: Trie
+      fname: trie.cpp
+- name: Graph Theory
+  dir: graph/
   files:
-    - title: $O(n\log n)-O(1)$ RMQ
-      fname: rmq.cpp
-    - title: $O(n\log n)-O(\log n)$ LCA
-      fname: lca.cpp
-    - title: 树状数组
-      fname: bit.cpp
-    - title: 并查集
-      fname: union-find.cpp
-    - title: 轻重权树剖分
-      fname: chain-decomp.cpp
-    - title: 强连通分量
+    - title: Strongly connected component
       fname: scc.cpp
-    - title: 双连通分量
+    - title: Vertex biconnected component
       fname: bcc.cpp
-    - title: 二分图匹配
-      fname: bimatch.cpp
-    - title: 最小费用最大流
-      fname: flow.cpp
-    - title: AhoCorasick自动机
-      fname: ac-automata.cpp
-    - title: 后缀数组
-      fname: sa.cpp
-    - title: LU分解
-      fname: lu.cpp
+    - title: Maximum flow (Dinic)
+      fname: dinic.cpp
+    - title: Maximum cardinality bipartite matching (Hungarian)
+      fname: hungarian.cpp
+    - title: Minimum cost maximum flow
+      fname: mcmf.cpp
+    - title: Global minimum cut (Stoer-Wagner)
+      fname: stoer.cpp
+    - title: Heavy-light decomposition
+      fname: hldecmp.cpp
+- name: Data Structures
+  dir: ds/
+  files: 
+    - title: Segment tree
+      fname: segtree.cpp
+    - title: Link/cut tree
+      fname: lct.cpp
+    - title: Balanced binary search tree from \lstinline|pb_ds|
+      fname: ordertree.cpp
+    - title: Persistent segment tree, range k-th query
+      fname: persistent_segtree.cpp

@@ -1,0 +1,17 @@
+set nocompatible
+syntax on
+colorscheme slate
+set number
+set cursorline
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+set magic
+set smartindent
+set backspace=indent,eol,start
+set cmdheight=1
+set laststatus=2
+set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\  
+set whichwrap=b,s,<,>,[,]
+

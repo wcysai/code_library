@@ -1,0 +1,13 @@
+mkdir -p ~/.trash
+alias rm=trash
+trash()
+{
+  mv $@ ~/.trash/
+}
+
+cleartrash()
+{
+   \rm -rvf ~/.trash
+   mkdir -p ~/.trash
+}
+

@@ -22,7 +22,7 @@
 
 
 \setCJKmainfont[BoldFont={SimHei}]{SimSun}
-\newfontfamily{\monotype}{Courier New}
+\newfontfamily{\monotype}{Consolas}
 %\newcommand{\monotype}{\tt}
 
 \pagestyle{fancy}
@@ -34,7 +34,7 @@
 
 \setlength{\parindent}{0em}
 
-\renewcommand{\contentsname}{目录}
+\renewcommand{\contentsname}{Contents}
 
 
 % settings for listings
@@ -42,11 +42,12 @@
   basicstyle = \small\monotype,
   language = C++,
   tabsize = 2,
+%  frame = single,
   breaklines = true,
   breakindent = 1.1em,
   numbers=right,
   stringstyle=\monotype,
-  numberstyle=\footnotesize\ttfamily,
+  numberstyle=\footnotesize\monotype,
   firstnumber=last,
   basewidth={0.5em, 0.4em},
 }
@@ -58,7 +59,7 @@
     \edef\thelstnumber{%
         \unexpanded{%
             \ifnum#1=\value{lstnumber}\relax
-             \tt #2%
+             \monotype #2%
             \else}%
         \expandafter\unexpanded\expandafter{\thelstnumber\othelstnumber\fi}%
     }

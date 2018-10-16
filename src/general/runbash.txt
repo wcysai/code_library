@@ -1,0 +1,21 @@
+if [ $# -ge 1 ]; then
+  fn=$1
+  echo ${fn} > .run.log
+else
+  fn=`cat .run.log`
+fi
+
+# cat $fn.cpp | xsel -ib
+
+if g++ $fn.cpp -std=c++11 -D__LOCAL_DEBUG__ -Wall -O2 -g -o $fn; then 
+  echo "********** Compilation Success! ********** [$fn]"
+  if [ $# -ge 2 ]; then
+    time -f "\n%U user, %S system, %e real" ./$fn < $2
+  else
+    time -f "\n%U user, %S system, %e real" ./$fn
+  fi
+#  cat $fn.cpp | xsel -ib
+else
+  echo "********** Compilation Failed! ********** [$fn]"
+fi
+

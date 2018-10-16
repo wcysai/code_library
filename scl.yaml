@@ -7,7 +7,7 @@
       fname: vimrc.txt
     - title: Template
       fname: template.cpp
-- name: Miscellanous Algorithms
+- name: Miscellaneous Algorithms
   dir: misc/
   files:
     - title: Fast fourier transform
@@ -27,6 +27,27 @@
       fname: aho-corasick.cpp
     - title: Trie
       fname: trie.cpp
+- name: Math
+  dir: math/
+  files:
+    - title: Matrix powermod
+      fname: matrix_powmod.cpp
+    - title: Linear basis
+      fname: linearbasis.cpp
+    - title: Gauss elimination over finite field
+      fname: gauss.cpp
+    - title: Berlekamp-Massey algorithm
+      fname: berlekamp-massey.cpp
+    - title: Fast Walsh-Hadamard transform
+      fname: fwt.cpp
+    - title: Number theoretic transform
+      fname: ntt.cpp
+    - title: Sieve of Euler
+      fname: euler_sieve.cpp
+    - title: Miler-Rabin primality test
+      fname: miller-rabin.cpp
+    - title: Pollard's rho algorithm
+      fname: pollard-rho.cpp
 - name: Graph Theory
   dir: graph/
   files:

@@ -10,8 +10,6 @@
 - name: Miscellaneous Algorithms
   dir: misc/
   files:
-    - title: Fast fourier transform
-      fname: fft.cpp
     - title: 2-SAT
       fname: two-sat.cpp
     - title: Knuth's optimization
@@ -27,8 +25,8 @@
       fname: aho-corasick.cpp
     - title: Trie
       fname: trie.cpp
-- name: Math
-  dir: math/
+- name: Linear Algebra
+  dir: la/
   files:
     - title: Matrix powermod
       fname: matrix_powmod.cpp
@@ -40,11 +38,16 @@
       fname: berlekamp-massey.cpp
     - title: Fast Walsh-Hadamard transform
       fname: fwt.cpp
+    - title: Fast fourier transform
+      fname: fft.cpp
     - title: Number theoretic transform
       fname: ntt.cpp
+- name: Number Theory
+  dir: nt/
+  files:
     - title: Sieve of Euler
-      fname: euler_sieve.cpp
-    - title: Miler-Rabin primality test
+      fname: euler_sieve_mult.cpp
+    - title: Miller-Rabin primality test
       fname: miller-rabin.cpp
     - title: Pollard's rho algorithm
       fname: pollard-rho.cpp
@@ -81,3 +84,7 @@
   files:
     - title: Primes
       fname: primes.tex
+    - title: Pell's equation
+      fname: pell.tex
+    - title: Burnside's lemma and Polya's enumeration theorem
+      fname: burnside.tex

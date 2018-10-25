@@ -2,7 +2,7 @@
 using namespace std;
 
 #ifdef __LOCAL_DEBUG__
-# define _debug(fmt, ...) fprintf(stderr, "\033[94m%s: " fmt "\n\033[0m", \
+# define _debug(fmt, ...) fprintf(stderr, "[%s] " fmt "\n", \
     __func__, ##__VA_ARGS__)
 #else
 # define _debug(...) ((void) 0)

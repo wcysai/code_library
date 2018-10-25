@@ -1,3 +1,4 @@
+\usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{fontspec,xunicode,xltxtra}
@@ -37,6 +38,10 @@
 
 \renewcommand{\contentsname}{Contents}
 
+\makeatletter
+\lst@CCPutMacro\lst@ProcessOther {"2D}{\lst@ttfamily{-{}}{-{}}}
+\@empty\z@\@empty
+\makeatother
 
 % settings for listings
 \lstset {

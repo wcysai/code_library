@@ -37,7 +37,7 @@ def gen_section(sect_yaml):
     sect.append("\\subsection{%s}" % title)
 
     def digest_line(s):
-      return hashlib.md5(re.sub(r'\s|//.*', '', s)).hexdigest()[-4:]
+      return hashlib.md5(re.sub(r'\s|//.*', '', s).encode('utf8')).hexdigest()[-4:]
 
     for line in code.split("\n"):
       sect.append("\\createlinenumber{%d}{%s}" % (line_count, digest_line(line)))

@@ -76,3 +76,8 @@
       fname: ordertree.cpp
     - title: Persistent segment tree, range k-th query
       fname: persistent_segtree.cpp
+- name: Appendices
+  dir: appendix/
+  files:
+    - title: Primes
+      fname: primes.tex

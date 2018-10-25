@@ -33,8 +33,12 @@ def gen_section(sect_yaml):
       code = fp.read()
 
     extension = fname.split('.')[-1]
-
+    
     sect.append("\\subsection{%s}" % title)
+    
+    if extension == 'tex' : 
+        sect.append(code)
+        continue
 
     def digest_line(s):
       return hashlib.md5(re.sub(r'\s|//.*', '', s).encode('utf8')).hexdigest()[-4:]

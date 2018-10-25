@@ -5,7 +5,7 @@ bool test(LL n){
     LL r = 0, d = n-1, x;
     while (~d & 1) d >>= 1, r++;
     for (int i=0; a[i] < n; i++){
-        x = powmod(a[i], d, n);
+        x = powmod(a[i], d, n); // ! powmod must use for 64bit mulmod
         if (x == 1 || x == n-1) goto next;
         rep (i, r) {
             x = mulmod(x, x, n);

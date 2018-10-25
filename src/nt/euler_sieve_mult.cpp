@@ -1,6 +1,6 @@
 namespace sieve {
   constexpr int MAXN = 10000007;
-  bool p[MAXN];
+  bool p[MAXN]; // true if not prime
   int prime[MAXN], sz;
   int pval[MAXN], pcnt[MAXN];
   int f[MAXN];

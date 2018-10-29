@@ -67,6 +67,11 @@
       fname: scc.cpp
     - title: Vertex biconnected component
       fname: bcc.cpp
+    - title: Minimum spanning arborescence (Chu-Liu)
+      fname: mdst.cpp
+      desc: | 
+              Usage: \lstinline|getans(n, root, edges)| \par
+              All vertices are 1-based.
     - title: Maximum flow (Dinic)
       fname: dinic.cpp
     - title: Maximum cardinality bipartite matching (Hungarian)

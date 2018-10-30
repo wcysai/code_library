@@ -69,11 +69,16 @@
       fname: bcc.cpp
     - title: Minimum spanning arborescence (Chu-Liu)
       fname: mdst.cpp
-      desc: | 
-              Usage: \lstinline|getans(n, root, edges)| \par
-              All vertices are 1-based.
+      desc:  All vertices are 1-based.
+      usage: 
+        getans(n, root, edges): Compute the total size of MSA rooted at \lstinline|root|.
+      time: $O(|V||E|)$ 
     - title: Maximum flow (Dinic)
       fname: dinic.cpp
+      usage: 
+        add_edge(u, v, c): Add an edge from $u$ to $v$ with capacity $c$.
+        max_flow(s, t): Compute maximum flow from $s$ to $t$.
+      time:  For general graph, $O(V^2E)$; for network with unit capacity, $O(\min\{V^{2/3}, \sqrt{E}\}E)$; for bipartite network, $O(\sqrt{V}E)$.
     - title: Maximum cardinality bipartite matching (Hungarian)
       fname: hungarian.cpp
     - title: Minimum cost maximum flow

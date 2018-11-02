@@ -1,5 +1,6 @@
 #!/usr/bin/env python2
-import re, os, hashlib, yaml
+import re, os, hashlib
+import oyaml as yaml
 
 line_count = 1
 

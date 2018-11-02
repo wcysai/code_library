@@ -25,6 +25,12 @@
       fname: aho-corasick.cpp
     - title: Trie
       fname: trie.cpp
+    - title: Rolling hash
+      fname: hasher.cpp
+      desc: \textbf{PLEASE} call \lstinline|init_hash()| in \lstinline{int main()}!
+      usage:
+        build(str): Construct the hasher with given string.
+        operator()(l, r): Get hash value of substring $[l, r)$.
 - name: Linear Algebra
   dir: la/
   files:

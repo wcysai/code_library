@@ -38,6 +38,13 @@
         使用\texttt{python checksum.py < code.cpp}打印校验和,并与代码库侧面的数值比对。
     - title: Vim配置文件
       fname: vimrc
+    - title: XXX
+      fname: XXX
+      desc:  XXX
+      usage: 
+        build(s): build XXX
+        run():    run XXX
+      time: $O(n \log n)$
 ```
 
 对应了“比赛配置”的Section，指定目录是`src/config/`，为每一个文件指定title (标题)、fname (文件名)、desc (详细描述，可选)。详细描述会被直接粘贴到LaTeX中编译。

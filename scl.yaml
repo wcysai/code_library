@@ -14,6 +14,17 @@
       fname: two-sat.cpp
     - title: Knuth's optimization
       fname: knuth.cpp
+    - title: Mo's algorithm
+      fname: mo.cpp
+      desc: |
+        All intervals are closed on both sides. When running functions \lstinline|enter()| and \lstinline|leave()|, the global $l$ and $r$ has not changed yet.
+      usage:
+        add_query(id, l, r): Add id-th query $[l, r]$.
+        run(): Run Mo's algorithm.
+        init(): \textbf{TODO}. Initialize the range $[l, r]$.
+        yield(id): \textbf{TODO}. Yield answer for id-th query.
+        enter(o): \textbf{TODO}. Add o-th element.
+        leave(o): \textbf{TODO}. Remove o-th element.
 - name: String
   dir: string/
   files:

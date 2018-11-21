@@ -3,6 +3,5 @@
 *.aux
 *.log
 *.toc
-*.pdf
 *.out
 /build/

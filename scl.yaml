@@ -3,6 +3,8 @@
   files:
     - title: Code library checksum
       fname: checksum.py
+    - title: Makefile
+      fname: Makefile.txt
     - title: .vimrc
       fname: vimrc.txt
     - title: Template

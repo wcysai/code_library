@@ -31,8 +31,8 @@ struct MCMF {
         p[s] = 0; a[s] = INT_MAX;
         while (!q.empty()){
             int u = q.front(); q.pop(); inq[u] = false;
-            rep (i, G[u].size()){
-                edge& e = edges[G[u][i]];
+            for (int i : G[u]) {
+                edge& e = edges[i];
                 if (e.cap > e.flow && d[e.to] > d[u] + e.cost){
                     d[e.to] = d[u] + e.cost;
                     p[e.to] = G[u][i];
@@ -61,7 +61,7 @@ struct MCMF {
         while (spfa()) {
             augment();
             if (flow + a[t] >= f){
-                cost += (f - flow) * a[t]; flow = f;
+                cost += (f - flow) * d[t]; flow = f;
                 return true;
             } else {
                 flow += a[t]; cost += a[t] * d[t];

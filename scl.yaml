@@ -33,8 +33,8 @@
       usage:
         build(str): Construct the hasher with given string.
         operator()(l, r): Get hash value of substring $[l, r)$.
-- name: Linear Algebra
-  dir: la/
+- name: Math
+  dir: math/
   files:
     - title: Matrix powermod
       fname: matrix_powmod.cpp
@@ -50,10 +50,9 @@
       fname: fft.cpp
     - title: Number theoretic transform
       fname: ntt.cpp
-- name: Number Theory
-  dir: nt/
-  files:
-    - title: Sieve of Euler
+    - title: Sieve of Euler 
+      fname: euler_sieve.cpp
+    - title: Sieve of Euler (General)
       fname: euler_sieve_mult.cpp
     - title: Miller-Rabin primality test
       fname: miller-rabin.cpp
@@ -68,6 +67,10 @@
         \end{tabular} 
     - title: Pollard's rho algorithm
       fname: pollard-rho.cpp
+    - title: Qusai-polynomial sum
+      fname: qpolysum.cpp
+      desc: |
+        \textbf{Must} call \lstinline|init()| before use!
 - name: Graph Theory
   dir: graph/
   files:
@@ -97,11 +100,21 @@
       fname: hldecmp.cpp
 - name: Data Structures
   dir: ds/
-  files: 
+  files:
+    - title: Fenwick tree (point update range query)
+      fname: bit_purq.cpp
+    - title: Fenwick tree (range update point query)
+      fname: bit_rupq.cpp
     - title: Segment tree
       fname: segtree.cpp
     - title: Link/cut tree
       fname: lct.cpp
+      usage:
+        pull(x): Collect information of subtrees.
+        Link(u, v): Link two unconnected trees.
+        Cut(u, v): Cut an existent edge.
+        Query(u, v): Path aggregation.
+        Update(u, x): Single point modification.
     - title: Balanced binary search tree from \lstinline|pb_ds|
       fname: ordertree.cpp
     - title: Persistent segment tree, range k-th query
@@ -123,5 +136,5 @@
       fname: pell.tex
     - title: Burnside's lemma and Polya's enumeration theorem
       fname: burnside.tex
-    - title: Lagrange interpolation formula
+    - title: Lagrange's interpolation
       fname: lagrange.tex

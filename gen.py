@@ -69,9 +69,9 @@ def gen_section(sect_yaml):
             descriptions.append('\\par')
         
         if descriptions :
-            sect.append('\\begin{mdframed}[hidealllines=true,backgroundcolor=blue!5]')
+#            sect.append('\\begin{mdframed}[hidealllines=true,backgroundcolor=blue!5]')
             sect.append('\n'.join(descriptions))
-            sect.append('\\end{mdframed}\\vspace{-10pt}')
+#            sect.append('\\end{mdframed}\\vspace{-10pt}')
         
         sect.append("\\begin{lstlisting}[language=%s]" % lang(extension))
         sect.append(code.decode('utf-8'))

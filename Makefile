@@ -7,11 +7,14 @@ build/main.pdf: $(SRCS) Makefile gen.py scl.yaml
 	cd build && xelatex main.tex
 	cd build && xelatex main.tex
 	cp build/main.pdf releases/latest.pdf
-	xdg-open build/main.pdf
 
-.PHONY: clean check
+.PHONY: clean check open
 check:
 	true # code valid check
 
 clean:
 	rm -rf build/
+
+open: build/main.pdf
+	xdg-open build/main.pdf
+

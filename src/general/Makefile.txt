@@ -1,0 +1,6 @@
+.PHONY : run
+
+run : $(t)
+
+$(t) : $(t).cpp
+	g++ --std=c++14 -O2 -D__LOCAL_DEBUG__ -fsanitize=undefined -fsanitize=address -ggdb -pipe -o $@ $<

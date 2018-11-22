@@ -109,6 +109,17 @@
       fname: stoer.cpp
     - title: Heavy-light decomposition
       fname: hldecmp.cpp
+      time: The decomposition itself takes linear time. Each query takes $O(\log n)$ operations.
+    - title: DSU on tree
+      fname: dsu.cpp
+      desc: |
+        DSU on tree. This avoids parallel existence of multiple data structures but requires that the data structure is invertible.
+        To use this template, implement \lstinline|merge|, \lstinline|enter|, \lstinline|leave| as needed;
+        first call \lstinline|decomp(root, 0)|, then call \lstinline|work(root, 0, false)|. Labels of vertices start from 1.
+      usage:
+        decomp(u, p): Decompose the tree $u$.
+        work(u, p, keep): Work for subtree $u$. When \lstinline|keep| is set, information is not cleared.
+      time: $O(n \log n)$ times the complexity for \lstinline|merge|, \lstinline|enter|, \lstinline|leave|.
 - name: Data Structures
   dir: ds/
   files:

@@ -58,7 +58,7 @@ def gen_section(sect_yaml):
         
         if usage:
             descriptions.append('\\textbf{Usage:}\\par') 
-            descriptions.append('\\begin{tabular}{p{4cm} p{9cm}}')
+            descriptions.append('\\begin{tabular}{p{3.5cm} p{8cm}}')
             for (funct, descript) in usage.items() :
                 descriptions.append('\lstinline|%s| & %s \\\\' % (funct, descript))
             descriptions.append('\\end{tabular}')

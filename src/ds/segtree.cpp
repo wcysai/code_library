@@ -76,11 +76,10 @@ struct segtree {
     if (ll <= l[o] && r[o] <= rr) {
       return val[o];
     } else {
-      LL ans = 0;
       push(o);
-      if (m[o] > ll) ans += query(lson, ll, rr);
-      if (m[o] < rr) ans += query(rson, ll, rr);
-      return ans % p;
+      if (rr <= m[o]) return query(lson, ll, rr);
+      if (ll >= m[o]) return query(rson, ll, rr);
+      return query(lson, ll, rr) + query(rson, ll, rr);
     }
   } 
 } seg;

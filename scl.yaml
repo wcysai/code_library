@@ -109,6 +109,14 @@
       fname: stoer.cpp
     - title: Heavy-light decomposition
       fname: hldecmp.cpp
+    - title: Centroid decomposition
+      fname: centdecomp.cpp
+      desc: |
+        All vertices are numbered from 1.
+        Call \lstinline|decomp(root, 0)| to use.
+      usage:
+        decomp(u, p): Decompose the tree rooted at $u$ with parent $p$.
+      time: The decomposition itself takes $O(n \log n)$ time.
 - name: Data Structures
   dir: ds/
   files:

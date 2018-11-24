@@ -113,15 +113,15 @@
     - title: Centroid decomposition
       fname: centdecomp.cpp
       desc: |
-        All vertices are numbered from 1.
-        Call \lstinline|decomp(root, 0)| to use.
+        Note that the centroid here is not the exact centroid of the graph. It only guarantees that the size of each subtree does not exceed half of that of the original tree. This is enough to guarantee the correct time complexity. All vertices are numbered from 1.
+        Call \lstinline|decomp(root)| to use.
       usage:
         decomp(u, p): Decompose the tree rooted at $u$ with parent $p$.
       time: The decomposition itself takes $O(n \log n)$ time.
     - title: DSU on tree
       fname: dsu.cpp
       desc: |
-        DSU on tree. This avoids parallel existence of multiple data structures but requires that the data structure is invertible.
+        This implementation avoids parallel existence of multiple data structures but requires that the data structure is invertible.
         To use this template, implement \lstinline|merge|, \lstinline|enter|, \lstinline|leave| as needed;
         first call \lstinline|decomp(root, 0)|, then call \lstinline|work(root, 0, false)|. Labels of vertices start from 1.
       usage:

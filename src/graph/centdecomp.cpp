@@ -17,19 +17,20 @@ int getcent(int u, int p) {
   return u;
 }
 
-void decompose(int u, int p) {
-  sum = 0; getsz(u, p);
-  int c = getcent(u, p);
+void decompose(int u) {
+  sum = 0; getsz(u, 0);
+  u = getcent(u, 0); // update u to the centroid
   
-  for (int v : adj[c]) { 
+  for (int v : adj[u]) { 
     // get answer for subtree v
   }
   // get answer for the whole tree
+  // don't forget to count the centroid itself
 
-  for (int v : adj[c]) {
-    adj[v].erase(find(range(adj[v]), c));
-    decompose(v, c);
-    adj[v].push_back(c); // restore deleted edge
+  for (int v : adj[u]) { // divide and conquer
+    adj[v].erase(find(range(adj[v]), u));
+    decompose(v);
+    adj[v].push_back(u); // restore deleted edge
   }
 }
 

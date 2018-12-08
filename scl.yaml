@@ -38,6 +38,14 @@
       fname: manacher.cpp
     - title: Aho-corasick automaton
       fname: aho-corasick.cpp
+    - title: Suffix array
+      fname: sa.cpp
+      usage: 
+        s[]: the source string
+        sa[i]: the index of starting position of $i$-th suffix
+        rk[i]: the number of suffixes less than the suffix starting from $i$
+        n: size of source string
+        m: size of character set
     - title: Trie
       fname: trie.cpp
     - title: Rolling hash

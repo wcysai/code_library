@@ -40,10 +40,12 @@
       fname: aho-corasick.cpp
     - title: Suffix array
       fname: sa.cpp
+      desc: The character immediately after the end of the string \textbf{MUST} be set to the \textbf{UNIQUE} \textbf{SMALLEST} element.
       usage: 
         s[]: the source string
         sa[i]: the index of starting position of $i$-th suffix
         rk[i]: the number of suffixes less than the suffix starting from $i$
+        h[i]: the longest common prefix between the $i$-th and $(i-1)$-th lexicographically smallest suffixes
         n: size of source string
         m: size of character set
     - title: Trie

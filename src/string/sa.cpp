@@ -1,26 +1,35 @@
-void suffix_array(const int s[], int sa[], int rk[], int n, int m) {
-    // size of x, y must be at least n, size of cnt must be at least max(n, m)
-    static int x[1000005], y[1000005], cnt[1000005];
+void radix_sort(int x[], int y[], int sa[], int n, int m) {
+    static int cnt[1000005];
+    fill(cnt, cnt + m, 0);
+    rep (i, n) cnt[x[y[i]]]++;
+    partial_sum(cnt, cnt + m, cnt);
+    for (int i = n - 1; i >= 0; i--) sa[--cnt[x[y[i]]]] = y[i];
+}
+ 
+void suffix_array(int s[], int sa[], int rk[], int n, int m) {
+    static int y[1000005];
     copy(s, s + n, rk);
     iota(y, y + n, 0);
-    for (int k = 0; ; k ? (k <<= 1) : (k = 1)) {
-        if (k) {
-            int t = 0;
-            for (int i = n - k; i < n; i++) y[t++] = i;
-            rep (i, n) if (sa[i] >= k) y[t++] = sa[i] - k;
-        }
-        fill(cnt, cnt + m, 0);
-        rep (i, n) cnt[rk[i]]++;
-        partial_sum(cnt, cnt + m, cnt);
-        rep (i, n) x[i] = rk[y[i]];
-        for (int i = n - 1; i >= 0; i--) 
-            sa[--cnt[x[i]]] = y[i];
+    radix_sort(rk, y, sa, n, m);
+    for (int j = 1, p = 0; j <= n; j <<= 1, m = p, p = 0) {
+        for (int i = n - j; i < n; i++) y[p++] = i;
+        rep (i, n) if (sa[i] >= j) y[p++] = sa[i] - j;
+        radix_sort(rk, y, sa, n, m + 1); 
         swap_ranges(rk, rk + n, y);
-        rk[sa[0]] = m = 0;
-        for (int i = 1; i < n; i++) {
-            int t1 = sa[i], t2 = sa[i-1];
-            rk[t1] = (y[t1] == y[t2] and y[t1 + k] == y[t2 + k]) ? m : ++m;
-        }
-        if (++m == n) break;
+        rk[sa[0]] = p = 1;
+        for (int i = 1; i < n; i++) 
+            rk[sa[i]] = ((y[sa[i]] == y[sa[i-1]] and y[sa[i]+j] == y[sa[i-1]+j]) ? p : ++p);
+        if (p == n) break;
+    }
+    rep (i, n) rk[sa[i]] = i;
+}
+ 
+void calc_height(int s[], int sa[], int rk[], int h[], int n) {
+    int k = 0;
+    h[0] = 0;
+    rep (i, n) {
+        k = max(k - 1, 0);
+        if (rk[i]) while (s[i+k] == s[sa[rk[i]-1]+k]) ++k;
+        h[rk[i]] = k;
     }
 }

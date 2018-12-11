@@ -1,5 +1,5 @@
 void radix_sort(int x[], int y[], int sa[], int n, int m) {
-    static int cnt[1000005];
+    static int cnt[1000005];    // size > max(n, m)
     fill(cnt, cnt + m, 0);
     rep (i, n) cnt[x[y[i]]]++;
     partial_sum(cnt, cnt + m, cnt);
@@ -7,7 +7,7 @@ void radix_sort(int x[], int y[], int sa[], int n, int m) {
 }
  
 void suffix_array(int s[], int sa[], int rk[], int n, int m) {
-    static int y[1000005];
+    static int y[1000005];  // size > n
     copy(s, s + n, rk);
     iota(y, y + n, 0);
     radix_sort(rk, y, sa, n, m);
@@ -23,7 +23,7 @@ void suffix_array(int s[], int sa[], int rk[], int n, int m) {
     }
     rep (i, n) rk[sa[i]] = i;
 }
- 
+
 void calc_height(int s[], int sa[], int rk[], int h[], int n) {
     int k = 0;
     h[0] = 0;

@@ -119,6 +119,12 @@
       fname: mcmf.cpp
     - title: Global minimum cut (Stoer-Wagner)
       fname: stoer.cpp
+    - title: Fast LCA
+      fname: lca.cpp
+      desc: All indices of the tree are 1-based.
+      usage: 
+        preprocess(root): Initialize with tree rooted at \lstinline|root|.
+        lca(u, v): Query the lowest common ancestor of $u$ and $v$.
     - title: Heavy-light decomposition
       fname: hldecmp.cpp
       time: The decomposition itself takes linear time. Each query takes $O(\log n)$ operations.

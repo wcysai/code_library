@@ -2,7 +2,7 @@ const int MAXD = 30;
 struct linearbasis {
     ULL b[MAXD] = {};
 
-    bool insert(ll v) {
+    bool insert(LL v) {
         for (int j = MAXD - 1; j >= 0; j--) {
             if (!(v & (1ll << j))) continue;
             if (b[j]) v ^= b[j]

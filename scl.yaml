@@ -59,6 +59,8 @@
 - name: Math
   dir: math/
   files:
+    - title: Extended Euclidean algorithm and Chinese remainder theorem
+      fname: crt.cpp
     - title: Matrix powermod
       fname: matrix_powmod.cpp
     - title: Linear basis
@@ -90,10 +92,6 @@
         \end{tabular} 
     - title: Pollard's rho algorithm
       fname: pollard-rho.cpp
-    - title: Qusai-polynomial sum
-      fname: qpolysum.cpp
-      desc: |
-        \textbf{Must} call \lstinline|init()| before use!
 - name: Graph Theory
   dir: graph/
   files:

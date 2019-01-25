@@ -113,10 +113,21 @@
       time:  For general graph, $O(V^2E)$; for network with unit capacity, $O(\min\{V^{2/3}, \sqrt{E}\}E)$; for bipartite network, $O(\sqrt{V}E)$.
     - title: Maximum cardinality bipartite matching (Hungarian)
       fname: hungarian.cpp
+    - title: Maximum matching of general graph (Edmond's blossom)
+      fname: blossom.cpp
+      usage:
+          init(n): Initialize the template with $n$ vertices, numbered from 1.
+          add_edge(u, v): Add an undirected edge $uv$.
+          solve(): Find the maximum matching. Return the number of matched edges.
+          mate[]: The mate of a matched vertex. If it is not matched, then the value is 0.
+      time: $O(|V|^3)$, but extremely fast in practice.
     - title: Minimum cost maximum flow
       fname: mcmf.cpp
     - title: Global minimum cut (Stoer-Wagner)
       fname: stoer.cpp
+      usage:
+          stoer(w) : Compute the global minimum cut of the graph specified by the \textbf{symmetric} adjacenct matrix \lstinline|w| (0-based). Return the capaity of the cut and the indices of one part of the cut.
+      time: $O(|V|^3)$
     - title: Fast LCA
       fname: lca.cpp
       desc: All indices of the tree are 1-based.

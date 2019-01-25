@@ -186,7 +186,7 @@
         maintain(): Maintain the block list property.
         split(pos): Split the block list at position \lstinline|pos|. Returns an iterator to a block starting at \lstinline|pos|.
         sum(l, r): An example function of list traversal between $[l, r)$.
-      time: When \lstinline|BLOCK| is property selected, the time complexity is $O(\sqrt{n})$ per operation.
+      time: When \lstinline|BLOCK| is properly selected, the time complexity is $O(\sqrt{n})$ per operation.
     - title: Sparse table, range extremum query
       fname: rmq.cpp
       desc: The array is 0-based and the range is closed.

@@ -166,12 +166,16 @@
       fname: segtree.cpp
     - title: Link/cut tree
       fname: lct.cpp
+      desc: Dynamic tree supports single-vertex update, path aggregation and relative LCA query.
       usage:
         pull(x): Collect information of subtrees.
+        Root(u): Get the root of tree where vertex $u$ is in.
         Link(u, v): Link two unconnected trees.
         Cut(u, v): Cut an existent edge.
         Query(u, v): Path aggregation.
         Update(u, x): Single point modification.
+        LCA(u, v, root): Get the lowest common ancestor of $u$ and $v$ in tree rooted at \lstinline|root|.
+      time: $O(\log n)$ per operation
     - title: Balanced binary search tree from \lstinline|pb_ds|
       fname: ordertree.cpp
     - title: Persistent segment tree, range k-th query

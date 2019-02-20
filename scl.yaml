@@ -99,6 +99,11 @@
       fname: scc.cpp
     - title: Vertex biconnected component
       fname: bcc.cpp
+    - title: Cut vertices
+      fname: cut_vertex.cpp
+      desc: If the graph is unconnected, the algorithm should be run on each component.
+      usage:
+        tarjan(u, fa): Run Tarjan's algorithm on tree rooted at \lstinline|fa|. Please call with identical \lstinline|u| and \lstinline|fa|.
     - title: Minimum spanning arborescence (Chu-Liu)
       fname: mdst.cpp
       desc:  All vertices are 1-based.

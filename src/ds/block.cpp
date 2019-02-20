@@ -1,27 +1,33 @@
-constexpr int BLOCK = 800;
+const int BLOCK = 800;
 typedef vector<int> vi;
-typedef shared_ptr<vi> pvi;
-typedef shared_ptr<const vi> pcvi;
 
 struct block {
-    pcvi data;
-    LL sum; 
+    vi data;
+    LL sum; int minv, maxv;
+    int add; bool rev;
     
-    // add information to maintain 
-    block(pcvi ptr) : 
-        data(ptr), 
-        sum(accumulate(ptr->begin(), ptr->end(), 0ll))
-    { }
-    
-    void merge(const block& another) {
-        pvi temp = make_shared<vi>(data->begin(), data->end());
-        temp->insert(temp->end(), another.data->begin(), another.data->end());
-        *this = block(temp);
+    block(vi&& vec) : data(move(vec)), 
+        sum(accumulate(range(data), 0ll)),
+        minv(*min_element(range(data))),
+        maxv(*max_element(range(data))),
+        add(0), rev(0) { }
+
+    void fix() {
+        if (rev) reverse(range(data));          rev = 0;
+        if (add) for (int& x : data) x += add;  add = 0;
     }
 
+    void merge(block& another) {
+        fix(); another.fix();
+        vi temp(move(data));
+        temp.insert(temp.end(), range(another.data));
+        *this = block(move(temp));
+    }
+    
     block split(int pos) {
-        block result(make_shared<vi>(data->begin() + pos, data->end()));
-        *this = block(make_shared<vi>(data->begin(), data->begin() + pos));
+        fix();
+        block result(vi(data.begin() + pos, data.end()));
+        data.resize(pos); *this = block(move(data));
         return result;
     }
 };
@@ -33,10 +39,10 @@ struct blocklist {
 
     void maintain() {
         lit it = blk.begin();
-        while (it != blk.end() and next(it) != blk.end()) {
+        while (it != blk.end() && next(it) != blk.end()) {
             lit it2 = it;
-            while (next(it2) != blk.end() and 
-                     it2->data->size() + next(it2)->data->size() <= BLOCK) {
+            while (next(it2) != blk.end() &&
+                    it2->data.size() + next(it2)->data.size() <= BLOCK) {
                 it2->merge(*next(it2));
                 blk.erase(next(it2));
             }
@@ -47,21 +53,48 @@ struct blocklist {
     lit split(int pos) {
         for (lit it = blk.begin(); ; it++) {
             if (pos == 0) return it;
-            while (it->data->size() > pos) {
+            while (it->data.size() > pos) 
                 blk.insert(next(it), it->split(pos));
-            }
-            pos -= it->data->size();
+            pos -= it->data.size();
+            
         }
     }
     
-    LL sum(int l, int r) { // traverse
-        lit it1 = split(l), it2 = split(r);
-        LL res = 0;
-        while (it1 != it2) {
-            res += it1->sum;
-            it1++;
+    void Init(int *l, int *r) {
+        for (int *cur = l; cur < r; cur += BLOCK)
+            blk.emplace_back(vi(cur, min(cur + BLOCK, r)));
+    }
+
+    void Reverse(int l, int r) {
+        lit it = split(l), it2 = split(r);
+        reverse(it, it2);
+        while (it != it2) {
+            it->rev ^= 1;
+            it++;
         }
         maintain();
-        return res;
     }
-};
+
+    void Add(int l, int r, int x) {
+        lit it = split(l), it2 = split(r);
+        while (it != it2) {
+            it->sum += LL(x) * it->data.size();
+            it->minv += x; it->maxv += x;
+            it->add += x; it++;
+        }
+        maintain();
+    }
+
+    void Query(int l, int r) {
+        lit it = split(l), it2 = split(r);
+        LL sum = 0; int minv = INT_MAX, maxv = INT_MIN;
+        while (it != it2) {
+            sum += it->sum; 
+            minv = min(minv, it->minv);
+            maxv = max(maxv, it->maxv);
+            it++;
+        }
+        maintain();
+        printf("%lld %d %d\n", sum, minv, maxv);
+    }
+} lst;

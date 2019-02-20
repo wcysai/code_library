@@ -166,7 +166,7 @@
       fname: segtree.cpp
     - title: Link/cut tree
       fname: lct.cpp
-      desc: Dynamic tree supports single-vertex update, path aggregation and relative LCA query.
+      desc: Dynamic connectivity of undirected acyclic graph. Support single-vertex update, path aggregation and relative LCA query. Vertices are numbered from 1. Zero initialization is enough except for the statistic information.
       usage:
         pull(x): Collect information of subtrees.
         Root(u): Get the root of tree where vertex $u$ is in.
@@ -180,10 +180,19 @@
       fname: ordertree.cpp
     - title: Persistent segment tree, range k-th query
       fname: persistent_segtree.cpp
-    - title: Persistent block list
+    - title: Block list
       fname: block.cpp
+      desc:  All indices are 0-based. All ranges are left-closed right-open.
+      usage:
+          block::fix(): Apply tags to the current block.
+          Init(l, r): Range initializer.
+          Reverse(l, r): Reverse the range.
+          Add(l, r, x): Add $x$ to the range.
+          Query(l, r): Range aggregation.
+    - title: Persistent block list
+      fname: persistent_block.cpp
       desc: |
-        Block list that supports persistence. All indices are 0-based. \lstinline|std::shared_ptr| is used to ease memory management. One should modify the constructor of \lstinline|block| to maintain extra information. Here we use this policy that the size of each block does not exceed \lstinline|BLOCK|, while the sum of sizes of two adjacent blocks does not less than \lstinline|BLOCK|. 
+        Block list that supports persistence. All indices are 0-based. All ranges are left-closed right-open. \lstinline|std::shared_ptr| is used to ease memory management. One should modify the constructor of \lstinline|block| to maintain extra information. Here we use this policy that the size of each block does not exceed \lstinline|BLOCK|, while the sum of sizes of two adjacent blocks does not less than \lstinline|BLOCK|. 
 
         When some operation that breaks block list property, please call \lstinline|maintain| in time to restore the property.
       usage: 

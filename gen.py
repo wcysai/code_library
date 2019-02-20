@@ -1,5 +1,5 @@
 #!/usr/bin/env python2
-import re, os, hashlib
+import re, os, hashlib, sys
 import oyaml as yaml
 
 line_count = 1
@@ -18,6 +18,8 @@ def gen_section(sect_yaml):
     global line_count
 
     name = sect_yaml['name']
+    sys.stderr.write('Section ' + name + '\n')
+
     dirname = sect_yaml['dir']
     files = sect_yaml['files']
 
@@ -27,6 +29,9 @@ def gen_section(sect_yaml):
     subsects = []
     for (idx, f) in enumerate(files):
         title = f['title']
+
+        sys.stderr.write('Processing ' + title + '\n')
+
         fname = f['fname']
         desc = f.get('desc', None)
         usage = f.get('usage', None)

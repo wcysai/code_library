@@ -42,7 +42,7 @@ struct LCT {
     void Update(int u, int x) { splay(u); val[u] = x; }
     int LCA(int x, int y, int root) {
         chroot(root); access(x); splay(y);
-        for (int rt = fa[y]; rt; rt = fa[y]) splay(y = rt);
+        while (fa[y]) splay(y = fa[y]);
         return y;
     }
 };

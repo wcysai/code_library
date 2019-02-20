@@ -164,11 +164,25 @@
       fname: bit_rupq.cpp
     - title: Segment tree
       fname: segtree.cpp
+    - title: Treap
+      fname: treap.cpp
+      desc: Self-balanced binary search tree which supports split and merge.
+      usage: 
+        push(x): Push lazy tags to children.
+        pull(x): Update statistics of node $x$.
+        Init(x, v): Initialize node $x$ with value $v$.
+        Add(x, v): Apply addition to subtree $x$.
+        Reverse(x): Apply reversion to subtree $x$.
+        Merge(x, y): Merge trees rooted at $x$ and $y$. Return the root of new tree.
+        Split(t, k, x, y): Split out the left $k$ elements of tree $t$. The roots of left part and right part are stored in $x$ an d $y$, respectively.
+        init(n): Initialize the treap with array of size $n$.
+        work(op, l, r): Range operation over $[l, r)$.\
+      time: Expected $O(\log n)$ per operation.
     - title: Link/cut tree
       fname: lct.cpp
       desc: Dynamic connectivity of undirected acyclic graph. Support single-vertex update, path aggregation and relative LCA query. Vertices are numbered from 1. Zero initialization is enough except for the statistic information.
       usage:
-        pull(x): Collect information of subtrees.
+        pull(x): Update statistics of node $x$.
         Root(u): Get the root of tree where vertex $u$ is in.
         Link(u, v): Link two unconnected trees.
         Cut(u, v): Cut an existent edge.

@@ -237,4 +237,16 @@
     - title: Burnside's lemma and Polya's enumeration theorem
       fname: burnside.tex
     - title: Lagrange's interpolation
-      fname: lagrange.tex
+      fname: lagrange.py
+      desc: |
+        For sample points $(x_0, y_0), \cdots, (x_k, y_k)$, define 
+        $$l_j(x) = \prod_{0 \leq m \leq k, m \neq j} \frac{x - x_m}{x_j - x_m}$$
+        then the Lagrange polynomial is
+        $$L(x) = \sum_{j=0}^k y_j l_j(x). $$
+        
+        To use the script below, type two lines
+        \begin{verbatim}
+                x0 x1 x2 ... xn
+                x0 x1 x2 ... xn        
+        \end{verbatim}
+        the script will print the fractional coefficient of the polynomial in the order of increasing exponent.

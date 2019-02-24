@@ -12,7 +12,7 @@ def polymul(a, b) :
 
 x, y = [map(Fraction, raw_input().split()) for _ in [0,0]]
 n = len(x)
-lj = [reduce(polymul, [[-x[m]/(x[j]-x[m]), 1/(x[j]-x[m])]
+lj = [reduce(polymul, [[num/(x[j]-x[m]) for num in -x[m], 1]
     for m in range(n) if m != j]) for j in range(n)]
-print ' '.join(map(str, 
-    reduce(polyadd, map(lambda a, b : [x * a for x in b], y, lj))))
+print ' '.join(map(str, reduce(polyadd, 
+    map(lambda a, b : [x * a for x in b], y, lj))))

@@ -10,9 +10,9 @@ def polymul(a, b) :
             p[e1 + e2] += c1 * c2
     return p
 
-x, y = [map(int, raw_input().split()) for _ in [0,0]]
+x, y = [map(Fraction, raw_input().split()) for _ in [0,0]]
 n = len(x)
-lj = [reduce(polymul, [[Fraction(-x[m], x[j]-x[m]), Fraction(1, x[j]-x[m])] 
+lj = [reduce(polymul, [[-x[m]/(x[j]-x[m]), 1/(x[j]-x[m])]
     for m in range(n) if m != j]) for j in range(n)]
 print ' '.join(map(str, 
     reduce(polyadd, map(lambda a, b : [x * a for x in b], y, lj))))

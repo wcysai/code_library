@@ -2,7 +2,8 @@ SRCS=$(shell find src/) $(shell find tex/)
 
 build/main.pdf: $(SRCS) Makefile gen.py scl.yaml
 	mkdir -p build/
-	python gen.py > build/code.tex
+	python2 environ.py > build/environ.tex
+	python2 gen.py > build/code.tex
 	cp tex/* build/
 	cd build && xelatex main.tex
 	cd build && xelatex main.tex

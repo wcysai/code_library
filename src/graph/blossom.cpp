@@ -1,6 +1,5 @@
 const int MAXN = 1024;
 struct Blossom {
-
     vector<int> adj[MAXN];
     queue<int> q;
     int n;

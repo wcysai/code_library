@@ -110,8 +110,15 @@
       fname: mdst.cpp
       desc:  All vertices are 1-based.
       usage: 
-        getans(n, root, edges): Compute the total size of MSA rooted at \lstinline|root|.
+        getans(n, root, edges): Compute the total weight of MSA rooted at \lstinline|root|.
       time: $O(|V||E|)$ 
+    - title: Minimum spanning arborescence, faster
+      fname: msa.cpp
+      desc:  All vertices are 1-based. Clear the fields when reuse the struct.
+      usage: 
+        add_edge(u, v, w): Add an edge from $u$ to $v$ with weight $w$.
+        run(n, rt): Compute the total weight of MSA rooted at \lstinline|rt|. If not exist, retun \lstinline|LLONG_MIN|.
+      time: $O(|E| \log^2 |V|)$ 
     - title: Maximum flow (Dinic)
       fname: dinic.cpp
       usage: 

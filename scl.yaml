@@ -38,6 +38,8 @@
       fname: manacher.cpp
     - title: Aho-corasick automaton
       fname: aho-corasick.cpp
+    - title: Trie
+      fname: trie.cpp
     - title: Suffix array
       fname: sa.cpp
       desc: The character immediately after the end of the string \textbf{MUST} be set to the \textbf{UNIQUE} \textbf{SMALLEST} element.
@@ -48,8 +50,6 @@
         h[i]: the longest common prefix between the $i$-th and $(i-1)$-th lexicographically smallest suffixes
         n: size of source string
         m: size of character set
-    - title: Trie
-      fname: trie.cpp
     - title: Rolling hash
       fname: hasher.cpp
       desc: \textbf{PLEASE} call \lstinline|init_hash()| in \lstinline{int main()}!
@@ -101,9 +101,11 @@
       fname: bcc.cpp
     - title: Cut vertices
       fname: cut_vertex.cpp
-      desc: If the graph is unconnected, the algorithm should be run on each component.
+      desc: If the graph is unconnected, the algorithm should be run on each component. One may run \lstinline|Rep (i, n) if (!dfn[i]) tarjan(i, i)| for unconnected graph.
       usage:
+        add_edge(u, v): Add an undirected edge $(u, v)$.
         tarjan(u, fa): Run Tarjan's algorithm on tree rooted at \lstinline|fa|. Please call with identical \lstinline|u| and \lstinline|fa|.
+        cut[v]: Whether $v$ is a cut vertex.
     - title: Minimum spanning arborescence (Chu-Liu)
       fname: mdst.cpp
       desc:  All vertices are 1-based.

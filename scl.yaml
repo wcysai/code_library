@@ -106,12 +106,6 @@
         add_edge(u, v): Add an undirected edge $(u, v)$.
         tarjan(u, fa): Run Tarjan's algorithm on tree rooted at \lstinline|fa|. Please call with identical \lstinline|u| and \lstinline|fa|.
         cut[v]: Whether $v$ is a cut vertex.
-    - title: Minimum spanning arborescence (Chu-Liu)
-      fname: mdst.cpp
-      desc:  All vertices are 1-based.
-      usage: 
-        getans(n, root, edges): Compute the total weight of MSA rooted at \lstinline|root|.
-      time: $O(|V||E|)$ 
     - title: Minimum spanning arborescence, faster
       fname: msa.cpp
       desc:  All vertices are 1-based. Clear the fields when reuse the struct.

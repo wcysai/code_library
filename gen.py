@@ -19,11 +19,15 @@ def gen_section(sect_yaml):
 
     name = sect_yaml['name']
     sys.stderr.write('Section ' + name + '\n')
+    
+    sect = []
+    
+    if name == 'Appendices' : 
+        sect.append('\\clearpage')
 
     dirname = sect_yaml['dir']
     files = sect_yaml['files']
 
-    sect = []
     sect.append("\\section{%s}" % name)
 
     subsects = []

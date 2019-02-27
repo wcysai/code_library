@@ -7,13 +7,13 @@ void exgcd(LL a, LL b, LL &g, LL &x, LL &y) {
 }
 
 LL crt(LL r[], LL p[], int n) {
-	LL q = 1, ret = 0;
-	rep (i, n) q *= p[i];
-	rep (i, n) {	
+    LL q = 1, ret = 0;
+    rep (i, n) q *= p[i];
+    rep (i, n) {	
         LL m = q / p[i];
         LL d, x, y;
-		exgcd(p[i], m, d, x, y);
-		ret = (ret + y * m * r[i]) % q;
-	}
-	return (q + ret) % q;
+        exgcd(p[i], m, d, x, y);
+        ret = (ret + y * m * r[i]) % q;
+    }
+    return (q + ret) % q;
 }

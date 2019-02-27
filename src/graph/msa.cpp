@@ -15,7 +15,7 @@ struct MDST {
         }
         while (heap[y].size()) {
             auto p = heap[y].top(); heap[y].pop();
-            heap[x].emplace(p.first + shift[y] - shift[x], p.second);
+            heap[x].emplace(p.first - shift[y] + shift[x], p.second);
         }
     }
     
@@ -32,8 +32,8 @@ struct MDST {
                     vis[s.top()] = 0; unite(u, s.top()); s.pop(); 
                 } else { vis[u] = 1; s.push(u); }
                 while (heap[u].size()) {
-                    ans += heap[u].top().first + shift[u];
-                    shift[u] = -heap[u].top().first;
+                    ans += heap[u].top().first - shift[u];
+                    shift[u] = heap[u].top().first;
                     if (find(heap[u].top().second) != u) break;
                     heap[u].pop();
                 }

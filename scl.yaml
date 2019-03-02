@@ -107,10 +107,7 @@
       usage:
         add_edge(u, v): Add an undirected edge $(u, v)$.
         tarjan(u, fa): Run Tarjan's algorithm on tree rooted at \lstinline|fa|. Please call with identical \lstinline|u| and \lstinline|fa|.
-<<<<<<< HEAD
-=======
         cut[v]: Whether $v$ is a cut vertex.
->>>>>>> 8bf23b3aea59b1e28f2ce99e76cc7191528f1119
     - title: Minimum spanning arborescence, faster
       fname: msa.cpp
       desc:  All vertices are 1-based. Clear the fields when reuse the struct.

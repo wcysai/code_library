@@ -61,8 +61,6 @@
   files:
     - title: Extended Euclidean algorithm and Chinese remainder theorem
       fname: crt.cpp
-    - title: Matrix powermod
-      fname: matrix_powmod.cpp
     - title: Linear basis
       fname: linearbasis.cpp
     - title: Gauss elimination over finite field
@@ -70,7 +68,7 @@
     - title: Berlekamp-Massey algorithm
       fname: berlekamp-massey.cpp
       desc: |
-        Call \lstinline|berlekamp()| with input sequence $(x_0, x_1, \cdots, x_{n - 1})$. Return a vector of coefficients $(c_0 = 1, c_1, \cdots, c_{m-1})$ with minimum m, such that $\sum_{i=0}^m c_i x_{j-i} = 0$ for all possible $j$.
+        Call \lstinline|berlekamp()| with input sequence $(x_0, x_1, \cdots, x_{n - 1})$. Return a vector of coefficients $(c_0 = 1, c_1, \cdots, c_{m-1})$ with minimum $m$, such that $\sum_{i=0}^m c_i x_{j-i} = 0$ for all possible $j$.
     - title: Fast Walsh-Hadamard transform
       fname: fwt.cpp
     - title: Fast fourier transform
@@ -92,7 +90,7 @@
           \lstinline|{2, 3, 5, 7, 11}| & when $n < 2.1 \times 10^{12}$. \\
           \lstinline|{2, 325, 9375, 28178, 450775, 9780504, 1795265022}| & when $n < 2^{64}$.
         \end{tabular} 
-    - title: Pollard's rho algorithm
+    - title: Integer factorization (Pollard's rho)
       fname: pollard-rho.cpp
 - name: Graph Theory
   dir: graph/

@@ -4,6 +4,7 @@ struct MatroidOracle {
     bool test(int x) const { /* TODO */ }
 };
 
+const int MAXN = 8192;
 template <typename MT1, typename MT2>
 struct MatroidIntersection {
     int n;

@@ -29,6 +29,15 @@
         yield(id): \textbf{TODO}. Yield answer for id-th query.
         enter(o): \textbf{TODO}. Add o-th element.
         leave(o): \textbf{TODO}. Remove o-th element.
+    - title: Matroid Intersection
+      fname: matint.cpp
+      desc: Find the maximum cardinality common independent set of two matroids. Matroids are given by independence oracle.
+      usage:
+          MatroidOracle: The independence oracle maintaining an independent set. \textbf{Note} that the default constructor must properly initialize inner state to an empty set.
+          insert(x): Insert element labeled $x$ to the independent set.
+          test(x): Test whether the set is still independent if $x$ is inserted.
+          MatroidIntersection<MT1, MT2>(n): Construct the matroid intersection solver with $n$ elements labeled from 0 and matroid oracles \lstinline|MT1| and \lstinline|MT2|.
+          run(): Run the algorithm and return the matroid intersection.
 - name: String
   dir: string/
   files:

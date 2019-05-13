@@ -10,7 +10,6 @@ void add_query(int id, int l, int r) {
 int l, r;
 
 // ----- functions to implement -----
-inline void init();
 inline void yield(int id);
 inline void enter(int o);
 inline void leave(int o);
@@ -24,7 +23,7 @@ void run() {
   });
   l = queries[0].l;
   r = queries[0].r;
-  init();
+  for (int i = l; i <= r; i++) enter(i);
   for (query q : queries) {
     while (l > q.l) enter(l - 1), l--;
     while (r < q.r) enter(r + 1), r++;

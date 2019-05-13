@@ -16,16 +16,18 @@
   files:
     - title: 2-SAT
       fname: two-sat.cpp
-    - title: Knuth's optimization
-      fname: knuth.cpp
+      usage:
+        init(n): Initialize the solver with $n$ variables.
+        add_clause(x, xval, y, yval): Add a clause \lstinline|(x == xval) -> (y == yval)|.
+        solve(): Solve the problem. Return \lstinline|true| if SAT, or \lstinline|false| if UNSAT.
+        operator[](i): Get the value of $i$-th variable.
     - title: Mo's algorithm
       fname: mo.cpp
       desc: |
-        All intervals are closed on both sides. When running functions \lstinline|enter()| and \lstinline|leave()|, the global $l$ and $r$ has not changed yet.
+        All intervals are closed on both sides. When running functions \lstinline|enter()| and \lstinline|leave()|, the global $l$ and $r$ has not changed yet. \textbf{Assume the data structure is initialized for empty interval}.
       usage:
         add_query(id, l, r): Add id-th query $[l, r]$.
         run(): Run Mo's algorithm.
-        init(): \textbf{TODO}. Initialize the range $[l, r]$.
         yield(id): \textbf{TODO}. Yield answer for id-th query.
         enter(o): \textbf{TODO}. Add o-th element.
         leave(o): \textbf{TODO}. Remove o-th element.

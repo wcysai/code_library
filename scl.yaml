@@ -103,6 +103,11 @@
         \end{tabular} 
     - title: Integer factorization (Pollard's rho)
       fname: pollard-rho.cpp
+    - title: Adaptive Simpson's Method
+      fname: simpson.cpp
+      desc: The Simpson's formula has order 3 algebraic precision.
+      usage:
+        integrate(l, r, eps, est, fn): Integrate the function \lstinline|fn| on interval $[l, r]$. \lstinline|eps| is the estimated precision, while \lstinline|est| is the current estimation, which can be set to arbitrary value initially.
 - name: Graph Theory
   dir: graph/
   files:

@@ -108,6 +108,16 @@
       desc: The Simpson's formula has order 3 algebraic precision.
       usage:
         integrate(l, r, eps, est, fn): Integrate the function \lstinline|fn| on interval $[l, r]$. \lstinline|eps| is the estimated precision, while \lstinline|est| is the current estimation, which can be set to arbitrary value initially.
+    - title: Linear Programming (Simplex)
+      fname: lpsolver.cpp
+      desc: |
+        This function solves the following linear program
+          \begin{align*}
+            \max \qquad & c^{\top} x \\
+            \text{s.t.} \qquad & Ax \leq b \\
+            & x \geq 0
+          \end{align*}
+        If the program is infeasible, \lstinline{NAN} is returned; if the program is unbounded, \lstinline{DBL_MAX} is returned; otherwise, the optimal target is returned and the arguments are stored in \lstinline{x}.
 - name: Graph Theory
   dir: graph/
   files:
@@ -128,7 +138,7 @@
       usage: 
         add_edge(u, v, w): Add an edge from $u$ to $v$ with weight $w$.
         run(n, rt): Compute the total weight of MSA rooted at \lstinline|rt|. If not exist, retun \lstinline|LLONG_MIN|.
-      time: $O((|E| + |V| \log |V|) \log |V|)$ 
+      time: $O(|E| \log^2 |V|)$ 
     - title: Maximum flow (Dinic)
       fname: dinic.cpp
       usage: 

@@ -265,6 +265,8 @@
       fname: pell.tex
     - title: Burnside's lemma and Polya's enumeration theorem
       fname: burnside.tex
+    - title: Supnick TSP
+      fname: supnick_tsp.tex
     - title: Lagrange's interpolation
       fname: lagrange.py
       desc: |

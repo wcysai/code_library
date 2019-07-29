@@ -1,5 +1,7 @@
 SRCS=$(shell find src/) $(shell find tex/)
 
+default:
+
 build/main.pdf: $(SRCS) Makefile gen.py scl.yaml
 	mkdir -p build/
 	python2 environ.py > build/environ.tex
@@ -8,6 +10,8 @@ build/main.pdf: $(SRCS) Makefile gen.py scl.yaml
 	cd build && xelatex main.tex
 	cd build && xelatex main.tex
 	cp build/main.pdf releases/latest.pdf
+
+test:
 
 .PHONY: clean check open
 check:

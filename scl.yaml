@@ -121,9 +121,7 @@
 - name: Graph Theory
   dir: graph/
   files:
-    - title: Strongly connected component
-      fname: scc.cpp
-    - title: Vertex biconnected component
+    - title: Vertex biconnected components
       fname: bcc.cpp
     - title: Cut vertices
       fname: cut_vertex.cpp

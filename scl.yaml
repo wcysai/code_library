@@ -112,7 +112,15 @@
       usage: 
         add_edge(u, v, w): Add an edge from $u$ to $v$ with weight $w$.
         run(n, rt): Compute the total weight of MSA rooted at \lstinline|rt|. If not exist, retun \lstinline|LLONG_MIN|.
-      time: $O((|E| + |V| \log |V|) \log |V|)$ 
+      time: $O(|E| \log^2 |V|)$ 
+    - title: Minimum spanning arborescence, slow
+      fname: msa-n2.cpp
+      desc:  All vertices are 1-based. Clear the fields when reuse the struct.
+      usage: 
+        init(n): Initalize the structure with $n$ vertices, indexed from 1.
+        add_edge(u, v, w): Add an edge from $u$ to $v$ with weight $w$.
+        run(n, rt): Compute the total weight of MSA rooted at \lstinline|rt|. If not exist, retun \lstinline|LLONG_MIN|.
+      time: $O(|V|^2)$ 
     - title: Maximum flow (Dinic)
       fname: dinic.cpp
       usage: 

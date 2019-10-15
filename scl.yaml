@@ -95,17 +95,15 @@
 - name: Graph Theory
   dir: graph/
   files:
-    - title: Strongly connected component
+    - title: Strongly connected components
       fname: scc.cpp
-    - title: Vertex biconnected component
+    - title: Vertex biconnected components, cut vertex
       fname: bcc.cpp
-    - title: Cut vertices
-      fname: cut_vertex.cpp
-      desc: If the graph is unconnected, the algorithm should be run on each component. One may run \lstinline|Rep (i, n) if (!dfn[i]) tarjan(i, i)| for unconnected graph.
+      desc: A component root $u$ is a cut vertex iff the size of \lstinline|bccin[u]| is at least 2; for any other vertice $u$, it is a cut vertex iff \lstinline|bccin[u]| is nonempty.
       usage:
-        add_edge(u, v): Add an undirected edge $(u, v)$.
-        tarjan(u, fa): Run Tarjan's algorithm on tree rooted at \lstinline|fa|. Please call with identical \lstinline|u| and \lstinline|fa|.
-        cut[v]: Whether $v$ is a cut vertex.
+        dfs(u): Run \lstinline|dfs(u)| for each connected component.
+        bcc[i]: The edges of the $i$-th biconnected components, numbered from 0. If the bcc is a simple cycle, the edges are sorted in order.
+        bccin[u]: The indices of biconnected components reachable from vertex $u$.
     - title: Minimum spanning arborescence, faster
       fname: msa.cpp
       desc:  All vertices are 1-based. Clear the fields when reuse the struct.

@@ -1,52 +1,34 @@
-const int MAXV = 100005;
+const int MAXN = 100005;
+int n, m;
+vector<int> adj[MAXN];
+int dfn[MAXN], low[MAXN], idx;
+int sccid[MAXN], sccn;
+vector<int> scc[MAXN];
 
-struct graph{
-    vector<int> adj[MAXV];
-    stack<int> s;
-    int V; // number of vertices
-    int pre[MAXV], lnk[MAXV], scc[MAXV];
-    int time, sccn;
-
-    void add_edge(int u, int v){
-        adj[u].push_back(v);
-    }
-
-    void dfs(int u){
-        pre[u] = lnk[u] = ++time;
-        s.push(u);
-        for (int v : adj[u]){
-            if (!pre[v]){
-                dfs(v);
-                lnk[u] = min(lnk[u], lnk[v]);
-            } else if (!scc[v]){
-                lnk[u] = min(lnk[u], pre[v]);
-            }
-        }
-        if (lnk[u] == pre[u]){
-            sccn++;
-            int x;
-            do {
-                x = s.top(); s.pop();
-                scc[x] = sccn;
-            } while (x != u);
+void dfs(int u) {
+    static stack<int> s;
+    dfn[u] = low[u] = ++idx;
+    s.push(u);
+    for (int v : adj[u]) {
+        if (!dfn[v]) {
+            dfs(v);
+            low[u] = min(low[u], low[v]);
+        } else if (!sccid[v]) {
+            low[u] = min(low[u], dfn[v]);
         }
     }
-
-    void find_scc(){
-        time = sccn = 0;
-        memset(scc, 0, sizeof scc);
-        memset(pre, 0, sizeof pre);
-        Rep (i, V){
-            if (!pre[i]) dfs(i);
-        }
+    if (dfn[u] == low[u]) {
+        sccn++;
+        do {
+            sccid[s.top()] = sccn;
+            scc[sccn].push_back(s.top());
+            s.pop();
+        } while (scc[sccn].back() != u);
     }
+}
 
-    vector<int> adjc[MAXV];
-    void contract(){
-        Rep (i, V)
-            rep (j, adj[i].size()){
-                if (scc[i] != scc[adj[i][j]])
-                    adjc[scc[i]].push_back(scc[adj[i][j]]);
-            }
-    }
-};
+vector<int> adjc[MAXN];
+void contract() {
+    Rep (u, n) for (int v : adj[u]) if (sccid[u] != sccid[v])
+        adjc[sccid[u]].push_back(sccid[v]);
+}

@@ -96,6 +96,11 @@
   dir: graph/
   files:
     - title: Strongly connected components
+      usage:
+        dfs(u): Run \lstinline|dfs(u)| for each unlabelled vertex.
+        scc[i]: The vertices of the $i$-th scc.
+        sccid[u]: The index of the scc that contains $u$.
+        contract(): Compute the contracted graph.
       fname: scc.cpp
     - title: Vertex biconnected components, cut vertex
       fname: bcc.cpp

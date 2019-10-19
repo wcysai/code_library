@@ -61,6 +61,9 @@
   files:
     - title: Extended Euclidean algorithm and Chinese remainder theorem
       fname: crt.cpp
+      desc: |
+        Solve $ax + by = g = \gcd(a,b)$ w.r.t. $x, y$. \par
+        If $(x_0, y_0)$ is an integer solution of $ax + by = g = \gcd(x,y)$, then every integer solution of it can be written as $(x_0 + kb', y_0 - ka')$, where $a' = a/g$, $b' = b/g$, and $k$ is arbitrary integer. \par
     - title: Linear basis
       fname: linearbasis.cpp
     - title: Gauss elimination over finite field

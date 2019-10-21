@@ -21,16 +21,6 @@
         add_clause(x, xval, y, yval): Add a clause \lstinline|(x == xval) -> (y == yval)|.
         solve(): Solve the problem. Return \lstinline|true| if SAT, or \lstinline|false| if UNSAT.
         operator[](i): Get the value of $i$-th variable.
-    - title: Mo's algorithm
-      fname: mo.cpp
-      desc: |
-        All intervals are closed on both sides. When running functions \lstinline|enter()| and \lstinline|leave()|, the global $l$ and $r$ has not changed yet. \textbf{Assume the data structure is initialized for empty interval}.
-      usage:
-        add_query(id, l, r): Add id-th query $[l, r]$.
-        run(): Run Mo's algorithm.
-        yield(id): \textbf{TODO}. Yield answer for id-th query.
-        enter(o): \textbf{TODO}. Add o-th element.
-        leave(o): \textbf{TODO}. Remove o-th element.
     - title: Matroid Intersection
       fname: matint.cpp
       desc: Find the maximum cardinality common independent set of two matroids. Matroids are given by independence oracle.
@@ -188,6 +178,19 @@
       fname: bit_rupq.cpp
     - title: Segment tree
       fname: segtree.cpp
+    - title: Mo's algorithm
+      fname: mo.cpp
+      desc: |
+        All intervals are closed on both sides. When running functions \lstinline|enter()| and \lstinline|leave()|, the global $l$ and $r$ has not changed yet. \textbf{Assume the data structure is initialized for empty interval}.
+      usage:
+        add_query(id, l, r): Add id-th query $[l, r]$.
+        run(): Run Mo's algorithm.
+        yield(id): \textbf{TODO}. Yield answer for id-th query.
+        enter(o): \textbf{TODO}. Add o-th element.
+        leave(o): \textbf{TODO}. Remove o-th element.
+    - title: Mo's algorithm on tree
+      fname: mo_tree.cpp
+      desc: Numbers of vertices are 1-based. Implement \lstinline|deal(int u)| and \lstinline|query::yield()|.
     - title: Treap
       fname: treap.cpp
       desc: Self-balanced binary search tree which supports split and merge.

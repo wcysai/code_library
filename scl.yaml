@@ -247,10 +247,8 @@
 - name: Appendices
   dir: appendix/
   files:
-    - title: Primes
-      fname: primes.tex
-    - title: Pell's equation
-      fname: pell.tex
+    - title: Number theory
+      fname: nt.tex
     - title: Burnside's lemma and Polya's enumeration theorem
       fname: burnside.tex
     - title: Lagrange's interpolation

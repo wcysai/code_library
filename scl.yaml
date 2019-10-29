@@ -150,12 +150,13 @@
 #      usage:
 #          stoer(w) : Compute the global minimum cut of the graph specified by the \textbf{symmetric} adjacenct matrix \lstinline|w| (0-based). Return the capaity of the cut and the indices of one part of the cut.
 #      time: $O(|V|^3)$
-    - title: Fast LCA
-      fname: lca.cpp
+    - title: Fast LCA, Virtual Tree
+      fname: vtree.cpp
       desc: All indices of the tree are 1-based.
       usage: 
-        preprocess(root): Initialize with tree rooted at \lstinline|root|.
+        prep(): Initialization.
         lca(u, v): Query the lowest common ancestor of $u$ and $v$.
+        vtree(vs): Create virtual tree with vertex set \lstinline|vs|.
     - title: Heavy-light decomposition
       fname: hldecmp.cpp
       time: The decomposition itself takes linear time. Each query takes $O(\log n)$ operations.

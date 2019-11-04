@@ -266,3 +266,5 @@
                 y0 y1 y2 ... yn        
         \end{verbatim}
         the script will print the fractional coefficient of the polynomial in ascending exponent order.
+    - title: LP duality
+      fname: lp.tex

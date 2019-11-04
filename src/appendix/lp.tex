@@ -1,0 +1,39 @@
+\begin{minipage}{0.25\textwidth}
+\begin{tabular}{|c|c|c|}
+  \hline
+  Primal & Dual \\
+  \hline
+  $\min z$ & $\max w$ \\
+  $n$ variables & $n$ constraints \\
+  var. $ \geq 0$ & con. $ \geq$ \\
+  var. $ \leq 0$ & con. $ \leq$ \\
+  free var. & con. $ = $ \\
+  $m$ constraints & $m$ variables \\
+  con. $ \geq $ & var. $\leq $ \\
+  con. $ \leq $ & var. $\geq $ \\
+  con. $ = $ & free var. \\
+  constraint vector & value vector \\
+  value vector & constraint vector \\
+  \hline
+\end{tabular}
+\end{minipage}
+\begin{minipage}{0.22\textwidth}
+Primal:
+\begin{align*}
+\max \quad & z = 2x_1 + x_2 + 3x_3 + x_4 \\
+\text{s.t.} \quad & x_1 + x_2 + x_3 + x_4 \leq 5 \\
+& 2x_1 - x_2 + 3x_3 = -4 \\
+& x_1 - x_3 + x_4 \geq 1 \\
+& x_1, x_3 \geq 0
+\end{align*}
+
+Dual:
+\begin{align*}
+\min \quad & w = 5y_1 - 4y_2 + y_3 \\
+\text{s.t.} \quad & y_1 + 2y_2 + y_3 \geq 2 \\
+& y_1 - y_2 = 1 \\
+& y_1 + 3y_2 - y_3 \geq 3 \\
+& y_1 + y_3  = 1 \\
+& y_1 \geq 0, y_3 \leq 0
+\end{align*}
+\end{minipage}

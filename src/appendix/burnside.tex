@@ -1,3 +1,5 @@
+\subsubsection{Unweighted version}
+
 The Burnside's lemma says that
 $$ |X / G| = \frac{1}{|G|} \sum_{g \in G} |X^g| $$
 where $G$ is a group acting on $X$, $X^g$ is the set of elements in $X$ that are fixed by $g$, i.e. $X^g = \{x \in X : gx = x\}$.
@@ -5,3 +7,16 @@ where $G$ is a group acting on $X$, $X^g$ is the set of elements in $X$ that are
 The unweighted version of P\'olya enumeration theorem says that
 $$ |Y^X / G| = \frac{1}{|G|} \sum_{g \in G} m^{c_g} $$
 where $m = |X|$ is the number of colors, $c_g$ is the number of the cycles of permutation $g$.
+
+\subsubsection{Weighted version}
+For permutation $\pi \in G$, if $\pi$ is a product of $k$ cycles, and the $i$th cycle has length $l_i$, let
+$$ M_{\pi}(x_1, x_2, \cdots, x_n) = \prod_{i=1}^n x_{l_i} .$$
+The cycle index of $G$ is defined by
+$$ P_G(x_1, x_2, \cdots, x_n) = \frac{1}{|G|} \sum_{\pi \in G} M_{\pi}(x_1, x_2, \cdots, x_n). $$
+Given $\bm{v} = (n_1, n_2, \cdots, n_m)$ of nonnegative integers satisfying that $n_1 + n_2 + \cdots + n_m = n$, let $a_{\bm{v}}$ represent the number of nonequivalent $m$ coloring of the $n$ objects, where the $i$th color occurs precisely $n_i$ times. The pattern inventory is the (multivariate) generating function for the sequence $a_{\bm{v}}$: 
+$$ F_G(y_1, y_2, \cdots, y_m) = \sum_{\bm{v}} a_{\bm{v}} y_1^{n_1} y_2^{n_2} \cdots y_m^{n_m} $$
+The weighted version of the P\'olya's enumeration theorem says that
+$$
+F_G(y_1, y_2, \cdots, y_m) = P_{G}(\sum_{i=1}^m y_i, \sum_{i=1}^m y_i^2, \cdots, \sum_{i=1}^m y_i^n)$$
+
+

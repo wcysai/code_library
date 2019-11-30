@@ -29,6 +29,8 @@
         yield(id): \textbf{TODO}. Yield answer for id-th query.
         enter(o): \textbf{TODO}. Add o-th element.
         leave(o): \textbf{TODO}. Remove o-th element.
+    - title: Connectivity Dynamic Programming
+      fname: conndp.cpp
 - name: String
   dir: string/
   files:

@@ -16,12 +16,22 @@
   files:
     - title: 2-SAT
       fname: two-sat.cpp
-    - title: Knuth's optimization
-      fname: knuth.cpp
-    - title: Mo's algorithm
+      usage:
+        init(n): Initialize the solver with $n$ variables.
+        add_clause(x, xval, y, yval): Add a clause \lstinline|(x == xval) -> (y == yval)|.
+        solve(): Solve the problem. Return \lstinline|true| if SAT, or \lstinline|false| if UNSAT.
+        operator[](i): Get the value of $i$-th variable.
+    - title: Matroid Intersection
+      fname: matint.cpp
+      desc: Find the maximum cardinality common independent set of two matroids. Matroids are given by independence oracle.
+      usage:
+          MatroidOracle: The independence oracle maintaining an independent set. \textbf{Note} that the default constructor must properly initialize inner state to an empty set.
+          insert(x): Insert element labeled $x$ to the independent set.
+          test(x): Test whether the set is still independent if $x$ is inserted.
+          MatroidIntersection<MT1, MT2>(n): Construct the matroid intersection solver with $n$ elements labeled from 0 and matroid oracles \lstinline|MT1| and \lstinline|MT2|.
+          run(): Run the algorithm and return the matroid intersection.
+    - title: Mo's Algorithm
       fname: mo.cpp
-      desc: |
-        All intervals are closed on both sides. When running functions \lstinline|enter()| and \lstinline|leave()|, the global $l$ and $r$ has not changed yet.
       usage:
         add_query(id, l, r): Add id-th query $[l, r]$.
         run(): Run Mo's algorithm.
@@ -97,6 +107,21 @@
         \end{tabular} 
     - title: Integer factorization (Pollard's rho)
       fname: pollard-rho.cpp
+    - title: Adaptive Simpson's Method
+      fname: simpson.cpp
+      desc: The Simpson's formula has order 3 algebraic precision.
+      usage:
+        integrate(l, r, eps, est, fn): Integrate the function \lstinline|fn| on interval $[l, r]$. \lstinline|eps| is the estimated precision, while \lstinline|est| is the current estimation, which can be set to arbitrary value initially.
+    - title: Linear Programming (Simplex)
+      fname: lpsolver.cpp
+      desc: |
+        This function solves the following linear program
+          \begin{align*}
+            \max \qquad & c^{\top} x \\
+            \text{s.t.} \qquad & Ax \leq b \\
+            & x \geq 0
+          \end{align*}
+        If the program is infeasible, \lstinline{NAN} is returned; if the program is unbounded, \lstinline{DBL_MAX} is returned; otherwise, the optimal target is returned and the arguments are stored in \lstinline{x}.
 - name: Graph Theory
   dir: graph/
   files:
@@ -189,6 +214,19 @@
       fname: bit_rupq.cpp
     - title: Segment tree
       fname: segtree.cpp
+    - title: Mo's algorithm
+      fname: mo.cpp
+      desc: |
+        All intervals are closed on both sides. When running functions \lstinline|enter()| and \lstinline|leave()|, the global $l$ and $r$ has not changed yet. \textbf{Assume the data structure is initialized for empty interval}.
+      usage:
+        add_query(id, l, r): Add id-th query $[l, r]$.
+        run(): Run Mo's algorithm.
+        yield(id): \textbf{TODO}. Yield answer for id-th query.
+        enter(o): \textbf{TODO}. Add o-th element.
+        leave(o): \textbf{TODO}. Remove o-th element.
+    - title: Mo's algorithm on tree
+      fname: mo_tree.cpp
+      desc: Numbers of vertices are 1-based. Implement \lstinline|deal(int u)| and \lstinline|query::yield()|.
     - title: Treap
       fname: treap.cpp
       desc: Self-balanced binary search tree which supports split and merge.
@@ -254,6 +292,8 @@
       fname: nt.tex
     - title: Burnside's lemma and Polya's enumeration theorem
       fname: burnside.tex
+    - title: Supnick TSP
+      fname: supnick_tsp.tex
     - title: Lagrange's interpolation
       fname: lagrange.py
       desc: |

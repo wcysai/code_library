@@ -2,7 +2,7 @@ struct bit_purq { // point update, range query
     int N;
     vector<LL> tr;
 
-    void init(int n) { tr.resize(N = n + 5); }
+    void init(int n) { tr.assign(N = n + 5, 0); }
 
     LL sum(int n) {
         LL ans = 0;

@@ -11,6 +11,8 @@ build/main.pdf: $(SRCS) Makefile gen.py scl.yaml
 	cd build && xelatex main.tex
 	cp build/main.pdf releases/latest.pdf
 
+test:
+
 .PHONY: clean check open
 check:
 	true # code valid check

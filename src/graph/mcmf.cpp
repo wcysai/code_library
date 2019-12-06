@@ -35,7 +35,7 @@ struct MCMF {
                 edge& e = edges[i];
                 if (e.cap > e.flow && d[e.to] > d[u] + e.cost){
                     d[e.to] = d[u] + e.cost;
-                    p[e.to] = G[u][i];
+                    p[e.to] = i;
                     a[e.to] = min(a[u], e.cap - e.flow);
                     if (!inq[e.to]) q.push(e.to), inq[e.to] = true;
                 }

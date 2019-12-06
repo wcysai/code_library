@@ -1,5 +1,7 @@
 SRCS=$(shell find src/) $(shell find tex/)
 
+.DEFAULT_GOAL = build/main.pdf
+
 build/main.pdf: $(SRCS) Makefile gen.py scl.yaml
 	mkdir -p build/
 	python2 environ.py > build/environ.tex

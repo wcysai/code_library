@@ -30,6 +30,17 @@
           test(x): Test whether the set is still independent if $x$ is inserted.
           MatroidIntersection<MT1, MT2>(n): Construct the matroid intersection solver with $n$ elements labeled from 0 and matroid oracles \lstinline|MT1| and \lstinline|MT2|.
           run(): Run the algorithm and return the matroid intersection.
+    - title: Mo's Algorithm
+      fname: mo.cpp
+      usage:
+        add_query(id, l, r): Add id-th query $[l, r]$.
+        run(): Run Mo's algorithm.
+        init(): \textbf{TODO}. Initialize the range $[l, r]$.
+        yield(id): \textbf{TODO}. Yield answer for id-th query.
+        enter(o): \textbf{TODO}. Add o-th element.
+        leave(o): \textbf{TODO}. Remove o-th element.
+    - title: Connectivity Dynamic Programming
+      fname: conndp.cpp
 - name: String
   dir: string/
   files:
@@ -62,6 +73,9 @@
   files:
     - title: Extended Euclidean algorithm and Chinese remainder theorem
       fname: crt.cpp
+      desc: |
+        Solve $ax + by = g = \gcd(a,b)$ w.r.t. $x, y$. \par
+        If $(x_0, y_0)$ is an integer solution of $ax + by = g = \gcd(x,y)$, then every integer solution of it can be written as $(x_0 + kb', y_0 - ka')$, where $a' = a/g$, $b' = b/g$, and $k$ is arbitrary integer. \par
     - title: Linear basis
       fname: linearbasis.cpp
     - title: Gauss elimination over finite field
@@ -111,15 +125,20 @@
 - name: Graph Theory
   dir: graph/
   files:
-    - title: Vertex biconnected components
-      fname: bcc.cpp
-    - title: Cut vertices
-      fname: cut_vertex.cpp
-      desc: If the graph is unconnected, the algorithm should be run on each component. One may run \lstinline|Rep (i, n) if (!dfn[i]) tarjan(i, i)| for unconnected graph.
+    - title: Strongly connected components
       usage:
-        add_edge(u, v): Add an undirected edge $(u, v)$.
-        tarjan(u, fa): Run Tarjan's algorithm on tree rooted at \lstinline|fa|. Please call with identical \lstinline|u| and \lstinline|fa|.
-        cut[v]: Whether $v$ is a cut vertex.
+        dfs(u): Run \lstinline|dfs(u)| for each unlabelled vertex.
+        scc[i]: The vertices of the $i$-th scc.
+        sccid[u]: The index of the scc that contains $u$.
+        contract(): Compute the contracted graph.
+      fname: scc.cpp
+    - title: Vertex biconnected components, cut vertex
+      fname: bcc.cpp
+      desc: A component root $u$ is a cut vertex iff the size of \lstinline|bccin[u]| is at least 2; for any other vertice $u$, it is a cut vertex iff \lstinline|bccin[u]| is nonempty.
+      usage:
+        dfs(u): Run \lstinline|dfs(u)| for each connected component.
+        bcc[i]: The edges of the $i$-th biconnected components, numbered from 0. If the bcc is a simple cycle, the edges are sorted in order.
+        bccin[u]: The indices of biconnected components reachable from vertex $u$.
     - title: Minimum spanning arborescence, faster
       fname: msa.cpp
       desc:  All vertices are 1-based. Clear the fields when reuse the struct.
@@ -127,6 +146,14 @@
         add_edge(u, v, w): Add an edge from $u$ to $v$ with weight $w$.
         run(n, rt): Compute the total weight of MSA rooted at \lstinline|rt|. If not exist, retun \lstinline|LLONG_MIN|.
       time: $O(|E| \log^2 |V|)$ 
+    - title: Minimum spanning arborescence, slow
+      fname: msa-n2.cpp
+      desc:  All vertices are 1-based. Clear the fields when reuse the struct.
+      usage: 
+        init(n): Initalize the structure with $n$ vertices, indexed from 1.
+        add_edge(u, v, w): Add an edge from $u$ to $v$ with weight $w$.
+        run(n, rt): Compute the total weight of MSA rooted at \lstinline|rt|. If not exist, retun \lstinline|LLONG_MIN|.
+      time: $O(|V|^2)$ 
     - title: Maximum flow (Dinic)
       fname: dinic.cpp
       usage: 
@@ -150,12 +177,13 @@
 #      usage:
 #          stoer(w) : Compute the global minimum cut of the graph specified by the \textbf{symmetric} adjacenct matrix \lstinline|w| (0-based). Return the capaity of the cut and the indices of one part of the cut.
 #      time: $O(|V|^3)$
-    - title: Fast LCA
-      fname: lca.cpp
+    - title: Fast LCA, Virtual Tree
+      fname: vtree.cpp
       desc: All indices of the tree are 1-based.
       usage: 
-        preprocess(root): Initialize with tree rooted at \lstinline|root|.
+        prep(): Initialization.
         lca(u, v): Query the lowest common ancestor of $u$ and $v$.
+        vtree(vs): Create virtual tree with vertex set \lstinline|vs|.
     - title: Heavy-light decomposition
       fname: hldecmp.cpp
       time: The decomposition itself takes linear time. Each query takes $O(\log n)$ operations.
@@ -260,10 +288,8 @@
 - name: Appendices
   dir: appendix/
   files:
-    - title: Primes
-      fname: primes.tex
-    - title: Pell's equation
-      fname: pell.tex
+    - title: Number theory
+      fname: nt.tex
     - title: Burnside's lemma and Polya's enumeration theorem
       fname: burnside.tex
     - title: Supnick TSP
@@ -282,3 +308,5 @@
                 y0 y1 y2 ... yn        
         \end{verbatim}
         the script will print the fractional coefficient of the polynomial in ascending exponent order.
+    - title: LP duality
+      fname: lp.tex

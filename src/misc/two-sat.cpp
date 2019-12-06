@@ -23,7 +23,7 @@ struct twoSAT {
     void add_clause(int x, bool xval, int y, bool yval) {
         x = x * 2 + xval;
         y = y * 2 + yval;
-        G[x^1].push_back(y);
+        G[x].push_back(y);
     }
 
     bool solve() {

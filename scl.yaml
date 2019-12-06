@@ -19,7 +19,7 @@
       usage:
         init(n): Initialize the solver with $n$ variables.
         add_clause(x, xval, y, yval): Add a clause \lstinline|(x == xval) -> (y == yval)|.
-        solve(): Solve the problem. Return \lstinline|true| if SAT, or \lstinline|false| if UNSAT.
+        solve(): Solve the problem. Return the satisfiability of the problem.
         operator[](i): Get the value of $i$-th variable.
     - title: Matroid Intersection
       fname: matint.cpp
@@ -30,15 +30,6 @@
           test(x): Test whether the set is still independent if $x$ is inserted.
           MatroidIntersection<MT1, MT2>(n): Construct the matroid intersection solver with $n$ elements labeled from 0 and matroid oracles \lstinline|MT1| and \lstinline|MT2|.
           run(): Run the algorithm and return the matroid intersection.
-    - title: Mo's Algorithm
-      fname: mo.cpp
-      usage:
-        add_query(id, l, r): Add id-th query $[l, r]$.
-        run(): Run Mo's algorithm.
-        init(): \textbf{TODO}. Initialize the range $[l, r]$.
-        yield(id): \textbf{TODO}. Yield answer for id-th query.
-        enter(o): \textbf{TODO}. Add o-th element.
-        leave(o): \textbf{TODO}. Remove o-th element.
     - title: Connectivity Dynamic Programming
       fname: conndp.cpp
 - name: String
